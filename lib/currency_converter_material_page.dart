@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CurrencyConverterMaterialPage extends StatelessWidget {
@@ -6,6 +5,8 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int result = 0;
+    final TextEditingController textEditingController = TextEditingController();
     final border = OutlineInputBorder(
         borderSide: const BorderSide(
             width: 2,
@@ -14,6 +15,15 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(5));
     return Scaffold(
         backgroundColor: Colors.blueGrey,
+        appBar: AppBar(
+          backgroundColor: Colors.blueGrey,
+          elevation: 0,
+          title: const Text(
+            "Cureency Convertor",
+            style: TextStyle(color: Colors.black),
+          ),
+          centerTitle: true,
+        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -29,6 +39,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TextField(
+                  controller: textEditingController,
                   style: const TextStyle(
                       color: Colors.black,
                       fontSize: 20,
@@ -55,21 +66,21 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: ElevatedButton(
-                    onPressed: () {
-                      if (kDebugMode) {
-                        print("button click");
-                      }
-                    },
-                    style: const ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(Colors.black),
-                        elevation: WidgetStatePropertyAll(15),
-                        shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10)))),
-                        minimumSize:
-                            WidgetStatePropertyAll(Size(double.infinity, 50)),
-                        foregroundColor: WidgetStatePropertyAll(Colors.white)),
-                    child: const Text("Convert")),
+                  onPressed: () {
+                    print(textEditingController.text);
+                    print(double.parse(textEditingController.text) * 119);
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      foregroundColor: Colors.white,
+                      elevation: 15,
+                      shape: (const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                        Radius.circular(5),
+                      ))),
+                      minimumSize: const Size(double.infinity, 50)),
+                  child: const Text("Convert"),
+                ),
               )
             ],
           ),
