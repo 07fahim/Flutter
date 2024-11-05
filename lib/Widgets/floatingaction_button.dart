@@ -63,9 +63,12 @@ class HomeActivity extends StatelessWidget {
               icon: const Icon(Icons.settings)),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        child: Icon(Icons.add),
+        label: Icon(Icons.add),
+        backgroundColor: Colors.amber,
+        foregroundColor: Colors.white,
       ),
       body: const Center(
         child: Text('Hello, World!'),
