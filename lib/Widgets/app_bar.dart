@@ -13,26 +13,35 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
       darkTheme: ThemeData(primarySwatch: Colors.deepOrange),
-      color: Colors.amberAccent,
-      home: const Homeactivity(),
+      themeMode: ThemeMode
+          .system, // Toggles between light and dark theme based on system settings
+      home: const HomeActivity(),
     );
   }
 }
 
-class Homeactivity extends StatelessWidget {
-  const Homeactivity({super.key});
+class HomeActivity extends StatelessWidget {
+  const HomeActivity({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        //backgroundColor: Colors.amber,
-        title: Text('My App Bar'), backgroundColor: Colors.amber,
+        title: const Text('My App Bar'),
+        backgroundColor: Colors.amber,
         centerTitle: true,
-        toolbarOpacity: 1,
         toolbarHeight: 50,
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.email)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.comment)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
+        ],
+      ),
+      body: const Center(
+        child: Text('Hello, World!'),
       ),
     );
   }
