@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,6 +25,11 @@ class MyApp extends StatelessWidget {
 class HomeActivity extends StatelessWidget {
   const HomeActivity({super.key});
 
+  MySnackbar(message, context) {
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,10 +41,26 @@ class HomeActivity extends StatelessWidget {
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.email)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.comment)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
+          IconButton(
+              onPressed: () {
+                MySnackbar("Search", context);
+              },
+              icon: const Icon(Icons.search)),
+          IconButton(
+              onPressed: () {
+                MySnackbar("Email", context);
+              },
+              icon: const Icon(Icons.email)),
+          IconButton(
+              onPressed: () {
+                MySnackbar("Comment", context);
+              },
+              icon: const Icon(Icons.comment)),
+          IconButton(
+              onPressed: () {
+                MySnackbar("Settings", context);
+              },
+              icon: const Icon(Icons.settings)),
         ],
       ),
       body: const Center(
