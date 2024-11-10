@@ -1,3 +1,10 @@
+import 'package:currency_converter/Widgets/Framents/BalanceFraments.dart';
+import 'package:currency_converter/Widgets/Framents/ContactsFraments.dart';
+import 'package:currency_converter/Widgets/Framents/EmailFragments.dart';
+import 'package:currency_converter/Widgets/Framents/HomeFraments.dart';
+import 'package:currency_converter/Widgets/Framents/PersonFrament.dart';
+import 'package:currency_converter/Widgets/Framents/SearchFraments.dart';
+import 'package:currency_converter/Widgets/Framents/SettingsFrament.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -84,6 +91,15 @@ class HomeActivity extends StatelessWidget {
             ],
           ),
         ),
+        body: const TabBarView(children: [
+          Homeframents(),
+          Personframent(),
+          Settingsframent(),
+          Contactsframents(),
+          Emailfragments(),
+          Searchframents(),
+          Balanceframents(),
+        ]),
       ),
     );
   }
