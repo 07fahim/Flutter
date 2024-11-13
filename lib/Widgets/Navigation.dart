@@ -76,17 +76,19 @@ class HomeActivity extends StatelessWidget {
             children: [
               ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/activity1');
+                    Navigator.pushNamed(context, '/activity1',
+                        arguments: 'This is from Home Activity');
                   },
                   child: const Text('Activity1')),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/activity2');
+                    Navigator.pushNamed(context, '/activity2',
+                        arguments: 'This is from Home Activity');
                   },
-                  child: Text("Activity2"))
+                  child: const Text("Activity2"))
             ],
           ),
         ));
@@ -98,9 +100,10 @@ class Activity1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final argument = ModalRoute.of(context)?.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Activity1"),
+        title: Text(argument),
       ),
       body: Center(
         child: Column(
@@ -108,7 +111,8 @@ class Activity1 extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/activity2');
+                  Navigator.pushNamed(context, '/activity2',
+                      arguments: 'This is from activity1');
                 },
                 child: const Text("Go To Activity2"))
           ],
@@ -123,9 +127,10 @@ class Activity2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final argument = ModalRoute.of(context)?.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Activity2"),
+        title: Text(argument),
       ),
       body: Center(
         child: Column(
