@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:currency_converter/Widgets/style.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -71,9 +72,13 @@ class HomeActivity extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Screen width ${width}"),
-            Text("Screen height ${height}"),
-            Text("Screen orientation ${orientation}"),
+            Center(
+              child: Container(
+                height: 400,
+                width: 400,
+                decoration: getContainerDecoration(context),
+              ),
+            ),
           ],
         ));
   }
